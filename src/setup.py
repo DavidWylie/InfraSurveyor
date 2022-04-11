@@ -1,9 +1,10 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='surveyor',
     version='0.1',
-    py_modules=['surveyor'],
+    packages=find_packages(),
+    include_package_data=True,
     install_requires=[
         'click',
         'boto3',
@@ -11,6 +12,6 @@ setup(
     ],
     entry_points='''
         [console_scripts]
-        surveyor=surveyor:cli
+        surveyor=surveyor.main:cli
     ''',
 )
