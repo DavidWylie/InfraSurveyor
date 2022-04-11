@@ -1,5 +1,5 @@
 import click
-from .commands import aws
+import cloud
 
 
 @click.group()
@@ -15,6 +15,6 @@ def survey_aws():
 
 
 @survey_aws.command(name="events")
-def survey_aws_events():
+def survey_aws_events(profile):
     """Survey the AWS Events flow"""
-    aws.survey_events()
+    cloud.aws.survey_events()

@@ -12,6 +12,6 @@ setup(
     ],
     entry_points='''
         [console_scripts]
-        surveyor=surveyor.main:cli
+        surveyor=surveyor.commands:cli
     ''',
 )

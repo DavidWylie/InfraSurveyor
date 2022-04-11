@@ -1,3 +1,4 @@
 click == 8.1.2
-boto3
-pygraphviz
+awscrt
+boto3[crt]
+graphviz
