@@ -1,5 +1,5 @@
 import click
-import cloud
+from . import cloud, icons, graphing
 
 
 @click.group()
@@ -15,6 +15,12 @@ def survey_aws():
 
 
 @survey_aws.command(name="events")
-def survey_aws_events(profile):
-    """Survey the AWS Events flow"""
-    cloud.aws.survey_events()
+@click.option("-o","--out_dir", default="." )
+@click.option("-f","--out_file", default="aws-events")
+@click.option("--out_ext", default="png" )
+def survey_aws_events(out_dir, out_file, out_ext):
+    """Survey the AWS Events flow - Creates a Dot graph and an Image"""
+    nodes, links = cloud.aws.survey_events()
+    icons.load_icons(nodes)
+    graph = graphing.create_graph(nodes, links)
+    graph.render_graph(out_file, out_dir, out_ext)

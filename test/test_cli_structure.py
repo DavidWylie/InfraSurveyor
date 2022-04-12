@@ -1,6 +1,6 @@
 import unittest
 from click.testing import CliRunner
-from surveyor.main import cli
+from surveyor.commands import cli
 
 
 class CliStructureTests(unittest.TestCase):
@@ -8,17 +8,18 @@ class CliStructureTests(unittest.TestCase):
     def test_missing_command_fails(self):
         runner = CliRunner()
         result = runner.invoke(cli, "example")
-        self.assertTrue(result.exit_code, 2)
+        self.assertEqual(result.exit_code, 2, result)
 
     def test_survey_aws_subcommand_exists(self):
         runner = CliRunner()
         result = runner.invoke(cli, "survey-aws")
-        self.assertTrue( result.exit_code == 0)
+        self.assertEqual( result.exit_code, 0), result
 
     def test_survey_aws_events_subcommand_exists(self):
         runner = CliRunner()
-        result = runner.invoke(cli, "survey-aws events")
-        self.assertTrue(result.exit_code == 0)
+        # Invoke with help option as we don't care about its execution here just its place in the hierarchy
+        result = runner.invoke(cli, "survey-aws events --help")
+        self.assertEqual(result.exit_code, 0, result)
 
 
 if __name__ == "__main__":

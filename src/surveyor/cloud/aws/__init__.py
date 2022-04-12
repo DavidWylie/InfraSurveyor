@@ -1,6 +1,9 @@
 from .lambda_functions import get_lambdas
+from .. import models
+from typing import List
 
-def survey_events():
+
+def survey_events() -> (List[models.Resource], List[models.Link]):
     nodes = []
     links = []
     # get eventRules

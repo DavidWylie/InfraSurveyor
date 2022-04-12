@@ -1,0 +1,15 @@
+graph {
+	graph [directed=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 nodesep=1 rankdir=LR ranksep=1 splines=curved]
+	node [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=0.75 imagepos=tc labelloc=b shape=none]
+	"test-1-arn" [label=First image="surveyor_aws_icons/Resource-Icons_01312022/Res_Quantum-Technologies/Res_48_Light/Res_Amazon-Braket_QPU _48_Light.png"]
+	"test-2-arn" [label=Second image="surveyor_aws_icons/Resource-Icons_01312022/Res_Quantum-Technologies/Res_48_Light/Res_Amazon-Braket_QPU _48_Light.png"]
+	"test-3-arn" [label=Third image="surveyor_aws_icons/Resource-Icons_01312022/Res_Quantum-Technologies/Res_48_Light/Res_Amazon-Braket_QPU _48_Light.png"]
+	"test-4-arn" [label=Forth image="surveyor_aws_icons/Resource-Icons_01312022/Res_Quantum-Technologies/Res_48_Light/Res_Amazon-Braket_QPU _48_Light.png"]
+	"test-5-arn" [label=Fith image="surveyor_aws_icons/Resource-Icons_01312022/Res_Quantum-Technologies/Res_48_Light/Res_Amazon-Braket_QPU _48_Light.png"]
+	"test-1-arn":e -- "test-2-arn":w
+	"test-1-arn":e -- "test-3-arn":w
+	"test-1-arn":e -- "test-4-arn":w
+	"test-1-arn":e -- "test-5-arn":w
+	"test-2-arn":e -- "test-4-arn":w
+	"test-3-arn":e -- "test-5-arn":w
+}

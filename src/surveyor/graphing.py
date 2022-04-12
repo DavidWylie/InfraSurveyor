@@ -1,5 +1,5 @@
 import graphviz
-from surveyor import models
+from surveyor.cloud import models
 from typing import List
 
 
@@ -44,3 +44,8 @@ class Graph:
             format=output_format
         )
 
+
+def create_graph(nodes: List[models.Resource], links: List[models.Link]) -> Graph:
+    graph = Graph()
+    graph.assemble_graph(nodes, links)
+    return graph

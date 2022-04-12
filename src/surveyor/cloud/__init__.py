@@ -1,5 +1,5 @@
-import aws
+from . import aws, models
 
 __all__ = [
-    aws
+    aws, models
 ]

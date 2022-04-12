@@ -1,19 +1,13 @@
 from .icon_sets import CategoryIconSet, ServiceIconSet, ResourceIconSet
 from .icon_types import Resource, Category
 from .image_format import ImageFormat
-from .loader import get_category_icon, get_resource_icon, get_service_icon
+from .loader import IconLoader
 from ._version import version
 
 
 __version__ = version
 __all__ = [
     Resource,
-    ResourceIconSet,
-    get_resource_icon,
-    Category,
-    CategoryIconSet,
-    get_category_icon,
-    ServiceIconSet,
-    get_service_icon,
-    ImageFormat
+    IconLoader,
+    Category
 ]

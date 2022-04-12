@@ -1,24 +1,5 @@
 import boto3
-from surveyor import models
-import surveyor_aws_icons
-
-
-_LAMBDA_ICON = None
-
-
-def _get_icon():
-    global _LAMBDA_ICON
-    if not _LAMBDA_ICON:
-        _LAMBDA_ICON = surveyor_aws_icons.get_resource_icon(
-            resource=surveyor_aws_icons.Resource(
-                category=surveyor_aws_icons.Category.COMPUTE,
-                service="AWS-Lambda",
-                resource_type="Lambda-Function"
-            ),
-            icon_set=surveyor_aws_icons.ResourceIconSet.LIGHT,
-            image_format=surveyor_aws_icons.ImageFormat.PNG
-        )
-    return _LAMBDA_ICON
+from .. import models
 
 
 def get_lambdas(nodes, links):
@@ -35,7 +16,8 @@ def create_function_nodes(function, function_name, nodes):
         name=function_name,
         resource_type="Lambda-Function",
         id=function['FunctionArn'],
-        image=_get_icon()
+        service="AWS-Lambda",
+        category="COMPUTE"
     )
     nodes.append(node)
 
