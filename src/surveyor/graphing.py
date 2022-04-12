@@ -38,7 +38,7 @@ class Graph:
             )
 
     def render_graph(self, file_name, directory, output_format):
-        self.graph.render(file_name, directory, format=output_format)
+        self.graph.render(file_name, directory=directory, format=output_format)
 
 
 def create_graph(nodes: List[models.Resource], links: List[models.Link]) -> Graph:
