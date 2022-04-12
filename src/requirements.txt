@@ -2,4 +2,5 @@ click == 8.1.2
 awscrt
 boto3[crt]
 graphviz
-moto
+moto[all]
+docker
