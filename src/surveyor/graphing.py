@@ -14,7 +14,7 @@ class Graph:
                 "fontname": "Sans-Serif",
                 "fontsize": "15",
                 "fontcolor": "#2D3436",
-                "rankdir": "LR"
+                "rankdir": "LR",
             },
             node_attr={
                 "shape": "none",
@@ -24,7 +24,7 @@ class Graph:
                 "fontname": "Sans-Serif",
                 "fontsize": "13",
                 "fontcolor": "#2D3436",
-            }
+            },
         )
 
     def assemble_graph(self, nodes: List[models.Resource], links: List[models.Link]):
@@ -38,11 +38,7 @@ class Graph:
             )
 
     def render_graph(self, file_name, directory, output_format):
-        self.graph.render(
-            file_name,
-            directory,
-            format=output_format
-        )
+        self.graph.render(file_name, directory, format=output_format)
 
 
 def create_graph(nodes: List[models.Resource], links: List[models.Link]) -> Graph:

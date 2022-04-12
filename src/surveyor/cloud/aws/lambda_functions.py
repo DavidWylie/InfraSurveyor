@@ -15,9 +15,9 @@ def create_function_nodes(function, function_name, nodes):
     node = models.Resource(
         name=function_name,
         resource_type="Lambda-Function",
-        id=function['FunctionArn'],
+        id=function["FunctionArn"],
         service="AWS-Lambda",
-        category="COMPUTE"
+        category="COMPUTE",
     )
     nodes.append(node)
 
@@ -35,7 +35,7 @@ def create_invoke_links(client, function_name, links):
                 models.Link(
                     source=config["FunctionArn"],
                     destination=success_config["Destination"],
-                    link_type="OnSuccess"
+                    link_type="OnSuccess",
                 )
             )
 
@@ -45,6 +45,6 @@ def create_invoke_links(client, function_name, links):
                 models.Link(
                     source=config["FunctionArn"],
                     destination=success_config["Destination"],
-                    link_type="OnFailure"
+                    link_type="OnFailure",
                 )
             )

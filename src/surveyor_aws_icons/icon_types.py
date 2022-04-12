@@ -15,8 +15,6 @@ class Category(Enum):
     COMPUTE = CategoryData("Compute", "##FF9900")
 
 
-
-
 @dataclass
 class Resource:
     category: Category

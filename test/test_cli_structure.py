@@ -5,6 +5,7 @@ from surveyor.commands import cli
 
 class CliStructureTests(unittest.TestCase):
     """Test Suite to check command structure exists as expected"""
+
     def test_missing_command_fails(self):
         runner = CliRunner()
         result = runner.invoke(cli, "example")
@@ -13,7 +14,7 @@ class CliStructureTests(unittest.TestCase):
     def test_survey_aws_subcommand_exists(self):
         runner = CliRunner()
         result = runner.invoke(cli, "survey-aws")
-        self.assertEqual( result.exit_code, 0), result
+        self.assertEqual(result.exit_code, 0), result
 
     def test_survey_aws_events_subcommand_exists(self):
         runner = CliRunner()

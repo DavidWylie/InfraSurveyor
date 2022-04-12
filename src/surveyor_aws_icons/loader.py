@@ -22,7 +22,7 @@ class IconLoader:
             f"Resource-Icons_{version}",
             f"Res_{resource.category.value.name}",
             f"Res_{self.resource_icon_set.value}",
-            f"Res_{resource.service}_{resource.resource_type}_{self.resource_icon_set.value}.{self.image_format.value}"
+            f"Res_{resource.service}_{resource.resource_type}_{self.resource_icon_set.value}.{self.image_format.value}",
         )
 
     def get_category_icon(self, category: Category) -> Path:
@@ -30,7 +30,7 @@ class IconLoader:
             _get_resource_dir(),
             f"Category-Icons_{version}",
             f"Arch-Category_{self.category_icon_set.value}",
-            f"Arch-Category_{category.value.name}_{self.category_icon_set.value}.{self.image_format.value}"
+            f"Arch-Category_{category.value.name}_{self.category_icon_set.value}.{self.image_format.value}",
         )
 
     def get_service_icon(self, category: Category, service) -> Path:
@@ -39,5 +39,5 @@ class IconLoader:
             f"Architecture-Service-Icons_{version}",
             f"Arch_{category.value.name}",
             f"Arch_{self.service_icon_set.value}",
-            f"Arch_{service}_{self.service_icon_set.value}.{self.image_format.value}"
+            f"Arch_{service}_{self.service_icon_set.value}.{self.image_format.value}",
         )
