@@ -8,7 +8,7 @@ setup(
     install_requires=[
         'click',
         'boto3',
-        'pygraphviz'
+        'graphviz'
     ],
     entry_points='''
         [console_scripts]
