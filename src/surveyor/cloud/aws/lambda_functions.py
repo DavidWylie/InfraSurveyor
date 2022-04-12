@@ -1,10 +1,9 @@
 import boto3
 from .. import models
-from . import REGION
 
 
 def get_lambdas(nodes, links):
-    client = boto3.client("lambda", region_name=REGION)
+    client = boto3.client("lambda", region_name="eu-west-2")
     result = client.list_functions()
     for function in result["Functions"]:
         function_name = function["FunctionName"]
