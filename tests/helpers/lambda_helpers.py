@@ -7,7 +7,7 @@ from moto import mock_lambda, mock_iam
 
 class MotoLambdaHelper:
     def __init__(self):
-        self.lambda_client = boto3.client("lambda", "eu-west-2")
+        self.lambda_client = boto3.client("lambda", region_name="eu-west-2")
 
     def get_test_zip_file1(self):
         pfunc = """
