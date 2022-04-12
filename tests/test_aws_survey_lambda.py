@@ -3,9 +3,13 @@ from surveyor.cloud  import aws
 from surveyor.cloud.models import Resource, Link
 from moto import mock_lambda, mock_sqs
 from helpers import MotoLambdaHelper, MotoSqsHelper
+import boto3
 
 
 class TestAWSSurveyLambda(unittest.TestCase):
+    def setUp(self) -> None:
+        boto3.setup_default_session(region_name="eu-west-2")
+
     def _get_expected_nodes(self):
         nodes = [
             Resource(
