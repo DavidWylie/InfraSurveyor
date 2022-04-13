@@ -22,7 +22,7 @@ class LambdaDataCollector(BaseAwsCollector):
         )
 
 
-class LambdaResultsParser():
+class LambdaResultsParser:
     def create_function_nodes(self, items):
         function_nodes = []
         for item in items:
@@ -75,7 +75,7 @@ class LambdaResultsParser():
             )
 
 
-def get_lambdas(nodes, links, region):
+def get(nodes, links, region):
     collector = LambdaDataCollector(region)
     items = collector.get_functions()
 

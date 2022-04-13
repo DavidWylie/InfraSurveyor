@@ -44,10 +44,9 @@ class SQSDataParser:
         return dlq_links
 
 
-def get_queues(nodes, links, region):
+def get(nodes, links, region):
     collector = SQSCollector(region)
     data = collector.get_queues()
     parser = SQSDataParser()
     nodes.extend(parser.create_sqs_nodes(data))
     links.extend(parser.create_sqs_dlq_links(data))
-

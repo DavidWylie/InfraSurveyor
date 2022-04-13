@@ -2,7 +2,7 @@ import boto3
 import zipfile
 import io
 from botocore.exceptions import ClientError
-from moto import mock_lambda, mock_iam
+from moto import mock_iam
 
 
 class MotoLambdaHelper:

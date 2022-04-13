@@ -3,7 +3,6 @@ from surveyor.cloud  import aws
 from surveyor.cloud.models import Resource, Link
 from moto import mock_lambda, mock_sqs
 from helpers import MotoLambdaHelper, MotoSqsHelper
-import boto3
 
 
 class TestAWSSurveyLambda(unittest.TestCase):
@@ -35,7 +34,7 @@ class TestAWSSurveyLambda(unittest.TestCase):
 
         expected_nodes = []
         expected_links = []
-        aws.lambda_functions.get_lambdas(nodes, links, "eu-west-2")
+        aws.lambda_functions.get(nodes, links, "eu-west-2")
         self.assertEqual(expected_nodes, nodes)
         self.assertEqual(expected_links, links)
 
@@ -49,7 +48,7 @@ class TestAWSSurveyLambda(unittest.TestCase):
         helper.create_fake_lambda("Second")
         expected_nodes = self._get_expected_nodes()
         expected_links = []
-        aws.lambda_functions.get_lambdas(nodes, links, "eu-west-2")
+        aws.lambda_functions.get(nodes, links, "eu-west-2")
         self.assertEqual(expected_nodes, nodes)
         self.assertEqual(expected_links, links)
 
@@ -79,7 +78,7 @@ class TestAWSSurveyLambda(unittest.TestCase):
                 link_type=""
             )
         ]
-        aws.lambda_functions.get_lambdas(nodes, links, "eu-west-2")
+        aws.lambda_functions.get(nodes, links, "eu-west-2")
         self.assertEqual(expected_nodes, nodes)
         self.assertEqual(expected_links, links)
 
