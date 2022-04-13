@@ -9,16 +9,14 @@ class SNSCollector(BaseAwsCollector):
 
     def get_topics(self):
         return self.get_paginated_results(
-            lambda marker:  self.sns.list_topics(NextToken=marker),
-            "NextToken",
-            "Topics"
+            lambda marker: self.sns.list_topics(NextToken=marker), "NextToken", "Topics"
         )
 
     def get_subscriptions(self):
         return self.get_paginated_results(
-            lambda marker:  self.sns.list_subscriptions(NextToken=marker),
+            lambda marker: self.sns.list_subscriptions(NextToken=marker),
             "NextToken",
-            "Subscriptions"
+            "Subscriptions",
         )
 
 
@@ -32,11 +30,11 @@ class SNSResultsParser:
     @staticmethod
     def create_topic_node(item):
         return models.Resource(
-            name=item["TopicArn"].split(':')[-1],
+            name=item["TopicArn"].split(":")[-1],
             resource_type="Topic",
             id=item["TopicArn"],
             service="Amazon-Simple-Notification-Service",
-            category="APPLICATION_INTEGRATION"
+            category="APPLICATION_INTEGRATION",
         )
 
     def create_subscription_links(self, items):
@@ -50,7 +48,7 @@ class SNSResultsParser:
         return models.Link(
             source=item["TopicArn"],
             destination=item["Endpoint"],
-            link_type="subscription"
+            link_type="subscription",
         )
 
 

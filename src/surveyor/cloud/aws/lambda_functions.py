@@ -9,16 +9,18 @@ class LambdaDataCollector(BaseAwsCollector):
 
     def get_functions(self):
         return self.get_paginated_results(
-            lambda marker:  self.client.list_functions(Marker=marker, MaxItems=20),
+            lambda marker: self.client.list_functions(Marker=marker, MaxItems=20),
             "NextMarker",
-            "Functions"
+            "Functions",
         )
 
     def get_event_source_mappings(self):
         return self.get_paginated_results(
-            lambda marker:  self.client.list_event_source_mappings(Marker=marker, MaxItems=20),
+            lambda marker: self.client.list_event_source_mappings(
+                Marker=marker, MaxItems=20
+            ),
             "NextMarker",
-            "EventSourceMappings"
+            "EventSourceMappings",
         )
 
 
@@ -43,7 +45,9 @@ class LambdaResultsParser:
         event_source_links = []
         for event_source in items:
             event_source_links.append(self.create_event_source_link(event_source))
-            event_source_links.extend(self.create_destination_config_links(event_source))
+            event_source_links.extend(
+                self.create_destination_config_links(event_source)
+            )
         return event_source_links
 
     @staticmethod
@@ -51,7 +55,7 @@ class LambdaResultsParser:
         return models.Link(
             source=event_source["EventSourceArn"],
             destination=event_source["FunctionArn"],
-            link_type=""
+            link_type="",
         )
 
     def create_destination_config_links(self, item):

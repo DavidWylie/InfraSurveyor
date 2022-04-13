@@ -19,7 +19,7 @@ class SQSDataParser:
         for queue in queues:
             queue_nodes.append(
                 models.Resource(
-                    name=queue.attributes['QueueArn'].split(':')[-1],
+                    name=queue.attributes["QueueArn"].split(":")[-1],
                     resource_type="Queue",
                     id=queue.attributes["QueueArn"],
                     service="Amazon-Simple-Queue-Service",
@@ -38,7 +38,7 @@ class SQSDataParser:
                     models.Link(
                         source=source.attributes["QueueArn"],
                         destination=queue.attributes["QueueArn"],
-                        link_type="DLQ"
+                        link_type="DLQ",
                     )
                 )
         return dlq_links
