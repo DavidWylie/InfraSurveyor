@@ -63,6 +63,6 @@ class TestGraphing(unittest.TestCase):
         ]
         graph = graphing.Graph()
         graph.assemble_graph(nodes, links)
-        graph.render_graph("test-chart", ".", "png")
+        graph.render_graph("test-chart", "out", "png")
         # Check graph creation doesnt cause code error.
         self.assertTrue(True)

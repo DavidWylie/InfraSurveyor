@@ -128,3 +128,5 @@ dmypy.json
 # Pyre resource_type checker
 .pyre/
 .idea/
+
+tests/out

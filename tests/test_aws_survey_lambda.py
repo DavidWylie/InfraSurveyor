@@ -35,7 +35,7 @@ class TestAWSSurveyLambda(unittest.TestCase):
 
         expected_nodes = []
         expected_links = []
-        aws.get_lambdas(nodes, links)
+        aws.get_lambdas(nodes, links, "eu-west-2")
         self.assertEqual(expected_nodes, nodes)
         self.assertEqual(expected_links, links)
 
@@ -49,7 +49,7 @@ class TestAWSSurveyLambda(unittest.TestCase):
         helper.create_fake_lambda("Second")
         expected_nodes = self._get_expected_nodes()
         expected_links = []
-        aws.get_lambdas(nodes, links)
+        aws.get_lambdas(nodes, links, "eu-west-2")
         self.assertEqual(expected_nodes, nodes)
         self.assertEqual(expected_links, links)
 
@@ -79,7 +79,7 @@ class TestAWSSurveyLambda(unittest.TestCase):
                 link_type=""
             )
         ]
-        aws.get_lambdas(nodes, links)
+        aws.get_lambdas(nodes, links, "eu-west-2")
         self.assertEqual(expected_nodes, nodes)
         self.assertEqual(expected_links, links)
 
