@@ -8,6 +8,7 @@ setup(
     install_requires=[
         'click',
         'boto3',
+        'boto3-stubs',
         'graphviz'
     ],
     entry_points='''

@@ -1,6 +1,7 @@
 click == 8.1.2
 awscrt
 boto3[crt]
+boto3-stubs[all]
 graphviz
 moto[all]
 docker
