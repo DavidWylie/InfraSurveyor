@@ -1,3 +1,5 @@
+[![Unit Tests](https://github.com/DavidWylie/Surveyor/actions/workflows/python-app.yml/badge.svg)](https://github.com/DavidWylie/Surveyor/actions/workflows/python-app.yml)
+[![CodeQL](https://github.com/DavidWylie/Surveyor/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/DavidWylie/Surveyor/actions/workflows/codeql-analysis.yml)
 # Surveyor
 A tool to survey existing cloud infrastructure and document what exists.
 This project is still in development and is not yet in use on a production system.  Diagrams are against AWS at the moment but this might not be required in the future.
