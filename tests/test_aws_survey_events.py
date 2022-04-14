@@ -6,7 +6,7 @@ from surveyor.cloud.models import Resource, Link
 import json
 
 
-class TestAWSSurveySQS(unittest.TestCase):
+class TestAWSSurveyEvents(unittest.TestCase):
     @mock_events
     def test_collector_get_rules(self):
         helper = MotoEventsHelper()

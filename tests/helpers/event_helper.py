@@ -2,7 +2,7 @@ import boto3
 
 class MotoEventsHelper:
     def __init__(self):
-        self.client = boto3.client("events")
+        self.client = boto3.client("events", region_name="eu-west-2")
 
     def create_rule(self, name, schedule, event_pattern):
         result = self.client.put_rule(
