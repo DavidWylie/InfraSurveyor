@@ -1,13 +1,19 @@
 import unittest
 from surveyor import graphing
 from surveyor.cloud.models import Resource, Link
+import os
 
 
 class TestGraphing(unittest.TestCase):
     def _create_test_nodes(self):
+        test_dir = os.path.dirname(__file__)
         image_1 = (
-            "surveyor_aws_icons/Resource-Icons_01312022/Res_Quantum-Technologies/Res_48_Light/Res_Amazon"
-            "-Braket_QPU _48_Light.png "
+            f"{test_dir}/../"
+            "src/"
+            "surveyor_aws_icons/"
+            "Resource-Icons_01312022/"
+            "Res_Quantum-Technologies/Res_48_Light/"
+            "Res_Amazon-Braket_QPU _48_Light.png"
         )
         nodes = [
             Resource(

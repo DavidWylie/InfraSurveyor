@@ -1,4 +1,4 @@
-from . import lambda_functions, sqs_queues, sns_topics
+from . import lambda_functions, sqs_queues, sns_topics, event_rules
 from .. import models
 from typing import List
 
@@ -10,9 +10,10 @@ def survey_events() -> (List[models.Resource], List[models.Link]):
 
     nodes = []
     links = []
-    # get eventRules
+
     lambda_functions.get(nodes, links, REGION)
     sqs_queues.get(nodes, links, REGION)
     sns_topics.get(nodes, links, REGION)
+    event_rules.get(nodes, links, REGION)
 
     return nodes, links
