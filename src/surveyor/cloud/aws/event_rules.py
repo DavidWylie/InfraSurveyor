@@ -9,16 +9,22 @@ class EventsCollector(BaseAwsCollector):
 
     def get_rules(self):
         return self.get_paginated_results(
-            lambda marker: self.client.list_rules(NextToken=marker) if marker else self.client.list_rules(),
+            lambda marker: self.client.list_rules(NextToken=marker)
+            if marker
+            else self.client.list_rules(),
             "NextToken",
-            "Rules"
+            "Rules",
         )
 
     def get_targets_for_rule(self, rule_name):
         return self.get_paginated_results(
-            lambda marker: self.client.list_targets_by_rule(NextToken=marker, Rule=rule_name) if marker else self.client.list_targets_by_rule(Rule=rule_name),
+            lambda marker: self.client.list_targets_by_rule(
+                NextToken=marker, Rule=rule_name
+            )
+            if marker
+            else self.client.list_targets_by_rule(Rule=rule_name),
             "NextToken",
-            "Targets"
+            "Targets",
         )
 
 
@@ -49,11 +55,7 @@ class EventsDataParser:
 
     @staticmethod
     def create_rule_target_link(item, rule_arn):
-        return models.Link(
-            source=rule_arn,
-            destination=item["Arn"],
-            link_type=""
-        )
+        return models.Link(source=rule_arn, destination=item["Arn"], link_type="")
 
 
 def get(nodes, links, region):

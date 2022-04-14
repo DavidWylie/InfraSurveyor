@@ -9,9 +9,7 @@ class SNSCollector(BaseAwsCollector):
 
     def get_topics(self):
         return self.get_paginated_results(
-            lambda marker: self.sns.list_topics(NextToken=marker),
-            "NextToken",
-            "Topics"
+            lambda marker: self.sns.list_topics(NextToken=marker), "NextToken", "Topics"
         )
 
     def get_subscriptions(self):
