@@ -70,6 +70,5 @@ class TestGraphing(unittest.TestCase):
         graph = graphing.Graph()
         graph.assemble_graph(nodes, links)
         graph.render_graph("test-chart", "out", "png")
-        graph.to_drawio("test-chart", "out")
         # Check graph creation doesnt cause code error.
         self.assertTrue(True)
