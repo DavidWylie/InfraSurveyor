@@ -9,7 +9,7 @@ setup(
         'click',
         'boto3',
         'boto3-stubs',
-        'graphviz'
+        'graphviz',
     ],
     entry_points='''
         [console_scripts]

@@ -13,7 +13,7 @@ class TestGraphing(unittest.TestCase):
             "surveyor_aws_icons/"
             "Resource-Icons_01312022/"
             "Res_Quantum-Technologies/Res_48_Light/"
-            "Res_Amazon-Braket_QPU _48_Light.png"
+            "Res_Amazon-Braket_QPU _48_Light.svg"
         )
         nodes = [
             Resource(
@@ -70,5 +70,6 @@ class TestGraphing(unittest.TestCase):
         graph = graphing.Graph()
         graph.assemble_graph(nodes, links)
         graph.render_graph("test-chart", "out", "png")
+        graph.to_drawio("test-chart", "out")
         # Check graph creation doesnt cause code error.
         self.assertTrue(True)
