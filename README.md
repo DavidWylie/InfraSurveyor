@@ -1,5 +1,8 @@
 [![Unit Tests](https://github.com/DavidWylie/Surveyor/workflows/UnitTests/badge.svg)](https://github.com/DavidWylie/Surveyor/actions/workflows/UnitTests)
+[![codecov](https://codecov.io/gh/DavidWylie/Surveyor/branch/main/graph/badge.svg?token=H7GP0SZLN7)](https://codecov.io/gh/DavidWylie/Surveyor)
+![PythonSupport](https://img.shields.io/static/v1?label=python&message=3.8%2B&color=blue?style=flat-square&logo=python)
 [![CodeQL](https://github.com/DavidWylie/Surveyor/workflows/CodeQuality/badge.svg)](https://github.com/DavidWylie/Surveyor/actions/workflows/CodeQuality)
+
 # Surveyor
 A tool to survey existing cloud infrastructure and document what exists.
 This project is still in development and is not yet in use on a production system.  Diagrams are against AWS at the moment but this might not be required in the future.
