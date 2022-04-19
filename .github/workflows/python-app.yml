@@ -40,4 +40,10 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest
+        pytest --cov --cov-report=html --cov-report=xml
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3.0.0
+      with:
+        file: out/report/coverage.xml
+        env_vars: OS,PYTHON
+        name: surveyor

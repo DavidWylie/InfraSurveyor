@@ -1,0 +1,12 @@
+[tool.coverage.run]
+include = ["src/surveyor/*", "src/surveyor_aws_icons/*"]
+omit = ["tests/*"]
+
+[tool.coverage.html]
+directory = "out/report/coverage_html"
+
+[tool.coverage.xml]
+output = "out/report/coverage.xml"
+
+[tool.pytest.ini_options]
+pythonpath = "src/"
