@@ -7,3 +7,4 @@ moto[all]
 docker
 coverage[toml]
 pytest-cov
+black

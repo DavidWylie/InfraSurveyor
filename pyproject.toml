@@ -10,3 +10,8 @@ output = "out/report/coverage.xml"
 
 [tool.pytest.ini_options]
 pythonpath = "src/"
+
+[tool.black]
+line-length = 88
+target-version = ['py36', 'py37', 'py38']
+include = ["src/surveyor",'src\/surveyor_aws_icons\/**.py$',"tests/*"]
