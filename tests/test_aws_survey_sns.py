@@ -5,13 +5,14 @@ from helpers import MotoSnsHelper, MotoSqsHelper
 from surveyor.cloud.aws.sns_topics import SNSCollector, SNSResultsParser
 from surveyor.cloud.models import Resource, Link
 
+
 class TestAWSSurveySNS(unittest.TestCase):
     @mock_sns
     def test_collector_get_sns_topics(self):
         helper = MotoSnsHelper()
         topic_arn = helper.create_topic("firstTopic")
 
-        collector = SNSCollector('eu-west-2')
+        collector = SNSCollector("eu-west-2")
         topics = collector.get_topics()
         self.assertEqual(1, len(topics))
         self.assertEqual(topic_arn, topics[0]["TopicArn"])
@@ -25,11 +26,11 @@ class TestAWSSurveySNS(unittest.TestCase):
         topic_arn = sns_helper.create_topic("firstTopic")
         sns_helper.create_subscription_to_queue(topic_arn=topic_arn, queue_arn=sqs_arn)
 
-        collector = SNSCollector('eu-west-2')
+        collector = SNSCollector("eu-west-2")
         subscriptions = collector.get_subscriptions()
 
         self.assertEqual(topic_arn, subscriptions[0]["TopicArn"])
-        self.assertEqual(sqs_arn, subscriptions[0]["Endpoint"]) # add assertion here
+        self.assertEqual(sqs_arn, subscriptions[0]["Endpoint"])  # add assertion here
 
     @mock_sns
     def test_parser_create_topic_nodes(self):
@@ -43,19 +44,19 @@ class TestAWSSurveySNS(unittest.TestCase):
                 id=topic_arn_1,
                 resource_type="Topic",
                 service="Amazon-Simple-Notification-Service",
-                category="APPLICATION_INTEGRATION"
+                category="APPLICATION_INTEGRATION",
             ),
             Resource(
                 name="secondTopic",
                 id=topic_arn_2,
                 resource_type="Topic",
                 service="Amazon-Simple-Notification-Service",
-                category="APPLICATION_INTEGRATION"
-            )
+                category="APPLICATION_INTEGRATION",
+            ),
         ]
 
-        collector = SNSCollector('eu-west-2')
-        data  = collector.get_topics()
+        collector = SNSCollector("eu-west-2")
+        data = collector.get_topics()
 
         parser = SNSResultsParser()
         nodes = parser.create_topic_nodes(data)
@@ -71,20 +72,16 @@ class TestAWSSurveySNS(unittest.TestCase):
         sns_helper.create_subscription_to_queue(topic_arn=topic_arn, queue_arn=sqs_arn)
 
         expected_links = [
-            Link(
-               source=topic_arn,
-                destination=sqs_arn,
-                link_type="subscription"
-            )
+            Link(source=topic_arn, destination=sqs_arn, link_type="subscription")
         ]
 
-        collector = SNSCollector('eu-west-2')
-        data  = collector.get_subscriptions()
+        collector = SNSCollector("eu-west-2")
+        data = collector.get_subscriptions()
 
         parser = SNSResultsParser()
         links = parser.create_subscription_links(data)
         self.assertEqual(expected_links, links)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

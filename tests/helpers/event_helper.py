@@ -1,5 +1,6 @@
 import boto3
 
+
 class MotoEventsHelper:
     def __init__(self):
         self.client = boto3.client("events", region_name="eu-west-2")
@@ -11,10 +12,7 @@ class MotoEventsHelper:
             EventPattern=event_pattern,
         )
 
-        return result['RuleArn']
+        return result["RuleArn"]
 
     def add_target_to_rule(self, rule_name, targets):
-        self.client.put_targets(
-            Rule=rule_name,
-            Targets=targets
-        )
+        self.client.put_targets(Rule=rule_name, Targets=targets)

@@ -52,11 +52,7 @@ class TestAWSSurveySQS(unittest.TestCase):
         sqs_arn_1 = sqs_helper.create_queue_with_dlq("First_queue", sqs_arn_dlq)
 
         expected_links = [
-            Link(
-                source=sqs_arn_1,
-                destination=sqs_arn_dlq,
-                link_type="DLQ"
-            )
+            Link(source=sqs_arn_1, destination=sqs_arn_dlq, link_type="DLQ")
         ]
         collector = SQSCollector("eu-west-2")
         data = collector.get_queues()
@@ -65,6 +61,5 @@ class TestAWSSurveySQS(unittest.TestCase):
         self.assertEqual(links, expected_links)
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

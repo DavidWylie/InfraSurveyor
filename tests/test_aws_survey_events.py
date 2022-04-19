@@ -10,14 +10,12 @@ class TestAWSSurveyEvents(unittest.TestCase):
     @mock_events
     def test_collector_get_rules(self):
         helper = MotoEventsHelper()
-        event_pattern = {
-            "source": ["test-source"]
-        }
+        event_pattern = {"source": ["test-source"]}
         rule_name = "test-rule-1"
         rule_arn = helper.create_rule(
             name=rule_name,
             schedule="rate(5 minutes)",
-            event_pattern=json.dumps(event_pattern)
+            event_pattern=json.dumps(event_pattern),
         )
 
         collector = EventsCollector("eu-west-2")
@@ -30,26 +28,18 @@ class TestAWSSurveyEvents(unittest.TestCase):
     @mock_sns
     def test_Collector_get_targets(self):
         helper = MotoEventsHelper()
-        event_pattern = {
-            "source": ["test-source"]
-        }
+        event_pattern = {"source": ["test-source"]}
         rule_name = "test-rule-1"
         rule_arn = helper.create_rule(
             name=rule_name,
             schedule="rate(5 minutes)",
-            event_pattern=json.dumps(event_pattern)
+            event_pattern=json.dumps(event_pattern),
         )
-        sns_helper  = MotoSnsHelper()
+        sns_helper = MotoSnsHelper()
         topic_arn = sns_helper.create_topic("test-topic")
 
         helper.add_target_to_rule(
-            rule_name,
-            [
-                {
-                    "Id":"test-tarted-id",
-                    "Arn":topic_arn
-                }
-            ]
+            rule_name, [{"Id": "test-tarted-id", "Arn": topic_arn}]
         )
         collector = EventsCollector("eu-west-2")
         targets = collector.get_targets_for_rule(rule_name)
@@ -60,14 +50,12 @@ class TestAWSSurveyEvents(unittest.TestCase):
     @mock_sns
     def test_parser_add_nodes(self):
         helper = MotoEventsHelper()
-        event_pattern = {
-            "source": ["test-source"]
-        }
+        event_pattern = {"source": ["test-source"]}
         rule_name = "test-rule-1"
         rule_arn = helper.create_rule(
             name=rule_name,
             schedule="rate(5 minutes)",
-            event_pattern=json.dumps(event_pattern)
+            event_pattern=json.dumps(event_pattern),
         )
 
         expected_nodes = [
@@ -91,44 +79,28 @@ class TestAWSSurveyEvents(unittest.TestCase):
     @mock_sns
     def test_parser_add_links(self):
         helper = MotoEventsHelper()
-        event_pattern = {
-            "source": ["test-source"]
-        }
+        event_pattern = {"source": ["test-source"]}
         rule_name = "test-rule-1"
         rule_arn = helper.create_rule(
             name=rule_name,
             schedule="rate(5 minutes)",
-            event_pattern=json.dumps(event_pattern)
+            event_pattern=json.dumps(event_pattern),
         )
-        sns_helper  = MotoSnsHelper()
+        sns_helper = MotoSnsHelper()
         topic_arn = sns_helper.create_topic("test-topic")
         topic_arn_2 = sns_helper.create_topic("test-topic-2")
 
         helper.add_target_to_rule(
             rule_name,
             [
-                {
-                    "Id":"test-tarted-id",
-                    "Arn":topic_arn
-                },
-                {
-                    "Id":"test-tarted-id-2",
-                    "Arn":topic_arn_2
-                },
-            ]
+                {"Id": "test-tarted-id", "Arn": topic_arn},
+                {"Id": "test-tarted-id-2", "Arn": topic_arn_2},
+            ],
         )
 
         expected_links = [
-            Link(
-                source=rule_arn,
-                destination=topic_arn,
-                link_type=""
-            ),
-            Link(
-                source=rule_arn,
-                destination=topic_arn_2,
-                link_type=""
-            )
+            Link(source=rule_arn, destination=topic_arn, link_type=""),
+            Link(source=rule_arn, destination=topic_arn_2, link_type=""),
         ]
 
         collector = EventsCollector("eu-west-2")
@@ -138,4 +110,3 @@ class TestAWSSurveyEvents(unittest.TestCase):
         links = parser.create_rule_target_links(targets, rule_arn)
 
         self.assertEqual(expected_links, links)
-
