@@ -24,4 +24,3 @@ def survey_aws_events(out_dir, out_file, out_ext):
     icons.load_icons(nodes)
     graph = graphing.create_graph(nodes, links)
     graph.render_graph(out_file, out_dir, out_ext)
-    graph.to_drawio(out_file, out_dir)
