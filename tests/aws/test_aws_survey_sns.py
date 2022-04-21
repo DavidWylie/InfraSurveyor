@@ -3,10 +3,13 @@ from moto import mock_sns, mock_sqs
 from helpers import MotoSnsHelper, MotoSqsHelper
 
 from surveyor.cloud.aws.sns_topics import SNSCollector, SNSResultsParser
+from surveyor.cloud.aws import sns_topics
 from surveyor.cloud.models import Resource, Link
 
 
 class TestAWSSurveySNS(unittest.TestCase):
+    DEFAULT_REGION = "eu-west-2"
+
     @mock_sns
     def test_collector_get_sns_topics(self):
         helper = MotoSnsHelper()
@@ -81,6 +84,36 @@ class TestAWSSurveySNS(unittest.TestCase):
         parser = SNSResultsParser()
         links = parser.create_subscription_links(data)
         self.assertEqual(expected_links, links)
+
+    @mock_sns
+    @mock_sqs
+    def test_get(self):
+        sqs_helper = MotoSqsHelper()
+        sqs_arn = sqs_helper.create_queue("firstQueue")
+        sns_helper = MotoSnsHelper()
+        topic_arn = sns_helper.create_topic("firstTopic")
+        sns_helper.create_subscription_to_queue(topic_arn=topic_arn, queue_arn=sqs_arn)
+
+        expected_nodes = [
+            Resource(
+                name="firstTopic",
+                id=topic_arn,
+                resource_type="Topic",
+                service="Amazon-Simple-Notification-Service",
+                category="APPLICATION_INTEGRATION",
+            )
+        ]
+
+        expected_links = [
+            Link(source=topic_arn, destination=sqs_arn, link_type="subscription")
+        ]
+
+        nodes = []
+        links = []
+        sns_topics.get(nodes, links, self.DEFAULT_REGION)
+
+        self.assertEqual(links, expected_links)
+        self.assertEqual(nodes, expected_nodes)
 
 
 if __name__ == "__main__":
