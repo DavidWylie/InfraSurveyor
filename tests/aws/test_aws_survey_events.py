@@ -1,12 +1,15 @@
 import unittest
 from helpers import MotoEventsHelper, MotoSnsHelper
 from surveyor.cloud.aws.event_rules import EventsCollector, EventsDataParser
+from surveyor.cloud.aws import event_rules
 from moto import mock_events, mock_sns
 from surveyor.cloud.models import Resource, Link
 import json
 
 
 class TestAWSSurveyEvents(unittest.TestCase):
+    DEFAULT_REGION = "eu-west-2"
+
     @mock_events
     def test_collector_get_rules(self):
         helper = MotoEventsHelper()
@@ -110,3 +113,41 @@ class TestAWSSurveyEvents(unittest.TestCase):
         links = parser.create_rule_target_links(targets, rule_arn)
 
         self.assertEqual(expected_links, links)
+
+    @mock_sns
+    @mock_events
+    def test_get(self):
+        helper = MotoEventsHelper()
+        event_pattern = {"source": ["test-source"]}
+        rule_name = "test-rule-1"
+        rule_arn = helper.create_rule(
+            name=rule_name,
+            schedule="rate(5 minutes)",
+            event_pattern=json.dumps(event_pattern),
+        )
+        sns_helper = MotoSnsHelper()
+        topic_arn = sns_helper.create_topic("test-topic")
+
+        helper.add_target_to_rule(
+            rule_name, [{"Id": "test-tarted-id", "Arn": topic_arn}]
+        )
+
+        expected_links = [
+            Link(source=rule_arn, destination=topic_arn, link_type=""),
+        ]
+
+        expected_nodes = [
+            Resource(
+                id=rule_arn,
+                name=rule_name,
+                resource_type="Rule",
+                service="Amazon-EventBridge",
+                category="APPLICATION_INTEGRATION",
+            )
+        ]
+
+        nodes = []
+        links = []
+        event_rules.get(nodes, links, self.DEFAULT_REGION)
+        self.assertEqual(links, expected_links)
+        self.assertEqual(nodes, expected_nodes)

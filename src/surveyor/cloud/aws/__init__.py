@@ -3,6 +3,7 @@ from .. import models
 from typing import List
 
 REGION = "eu-west-2"
+services = [sqs_queues, sns_topics, event_rules, lambda_functions]
 
 
 def survey_events() -> (List[models.Resource], List[models.Link]):
@@ -10,10 +11,7 @@ def survey_events() -> (List[models.Resource], List[models.Link]):
 
     nodes = []
     links = []
-
-    lambda_functions.get(nodes, links, REGION)
-    sqs_queues.get(nodes, links, REGION)
-    sns_topics.get(nodes, links, REGION)
-    event_rules.get(nodes, links, REGION)
+    for service in services:
+        service.get(nodes, links, REGION)
 
     return nodes, links

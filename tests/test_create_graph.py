@@ -72,3 +72,14 @@ class TestGraphing(unittest.TestCase):
         graph.render_graph("test-chart", "out", "png")
         # Check graph creation doesnt cause code error.
         self.assertTrue(True)
+
+    def test_create_graph(self):
+        nodes = self._create_test_nodes()
+        links = [
+            Link("test-1-arn", "test-2-arn", "testing"),
+            Link("test-1-arn", "test-3-arn", "testing"),
+            Link("test-1-arn", "test-4-arn", "testing"),
+            Link("test-1-arn", "test-5-arn", "testing"),
+        ]
+        graph = graphing.create_graph(nodes, links)
+        self.assertIsInstance(graph, graphing.Graph)
