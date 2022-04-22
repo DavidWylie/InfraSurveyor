@@ -54,5 +54,7 @@ upload_to_repository = false
 upload_to_release = true
 dist_path = "dist/"
 hvcs = "github"
-check_build_status = "true"
+check_build_status = true
+major_on_zero = false
+
 
