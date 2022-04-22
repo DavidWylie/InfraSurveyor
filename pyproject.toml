@@ -1,3 +1,31 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "surveyor"
+description = "An Autodocumenting tool for Cloud Infrastructure"
+keywords = ["AWS", "Cloud", "Documentation", "Architecture"]
+readme = "README.md"
+license = { file = "LICENSE" }
+dependencies = [
+    "click",
+    "awscrt",
+    "boto3[crt]",
+    "graphviz",
+]
+dynamic = ["version"]
+
+
+[project.optional-dependencies]
+dev = ["moto[all]", "docker", "coverage[toml]", "pytest-cov", "black", "python-semantic-release"]
+
+[project.urls]
+Source="https://github.com/DavidWylie/Surveyor"
+
+[projects.scripts]
+surveyor="surveyor.commands:cli"
+
 [tool.coverage.run]
 include = ["src/surveyor/*", "src/surveyor_aws_icons/*"]
 omit = ["tests/*"]
@@ -15,3 +43,15 @@ pythonpath = "src/"
 line-length = 88
 target-version = ['py36', 'py37', 'py38']
 include = '\.pyi?$'
+
+[tool.semantic_release]
+version_variable = "src/surveyor/__init__.py:__version__"
+tag_commit = true
+commit_version_number = true
+commit_subject = "Release {version}"
+upload_to_repository = false
+upload_to_release = true
+dist_path = "dist/"
+hvcs = "github"
+check_build_status = "true"
+
