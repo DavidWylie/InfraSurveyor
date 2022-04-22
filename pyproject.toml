@@ -52,5 +52,5 @@ tag_commit = true
 commit_version_number = true
 commit_subject = "Release {version}"
 dist_path = "dist/"
-
-
+build_command = "flit build"
+upload_to_repository = false
