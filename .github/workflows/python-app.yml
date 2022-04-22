@@ -30,11 +30,9 @@ jobs:
       run: |
         sudo apt-get install graphviz
     - name: Install dependencies
-      working-directory: src
       run: |
         python -m pip install --upgrade pip
-        pip install pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pip install -e ".[dev]"
     - name: Test with pytest
       run: |
         pytest --cov --cov-report=html --cov-report=xml
