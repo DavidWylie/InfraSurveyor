@@ -20,11 +20,12 @@ dynamic = ["version"]
 [project.optional-dependencies]
 dev = ["moto[all]", "docker", "coverage[toml]", "pytest-cov", "black", "python-semantic-release"]
 release = ["flit"]
+docs = ["mkdocs"]
 
 [project.urls]
 Source="https://github.com/DavidWylie/Surveyor"
 
-[projects.scripts]
+[project.scripts]
 surveyor="surveyor.commands:cli"
 
 [tool.coverage.run]
