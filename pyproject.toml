@@ -19,6 +19,7 @@ dynamic = ["version"]
 
 [project.optional-dependencies]
 dev = ["moto[all]", "docker", "coverage[toml]", "pytest-cov", "black", "python-semantic-release"]
+release = ["flit"]
 
 [project.urls]
 Source="https://github.com/DavidWylie/Surveyor"
