@@ -7,6 +7,19 @@
 A tool to survey existing cloud infrastructure and document what exists.
 This project is still in development and is not yet in use on a production system.  Diagrams are against AWS at the moment but this might not be required in the future.
 
+## Releasing
+```bash
+pip install -e ".[dev]"
+semantic-release publish --minor
+```
+
+This command will:
+- bump the verison number
+- create the git tag for the release
+- push the tag
+
+A github action will kick in to create the release in github when the tag is pushed.  The release will contain the files in the dist directory created by flit and license file.
+
 ## Why
 When developing cloud infrastructure you tend to create Architecture diagrams.
 These start reflecting the ideal of what should be built and may even match the initial implementation.  Over time due to pressures in development diagrams tend to get out of date.   Even with 'living' documentation it takes considerable time and effort to keep it current.
@@ -58,8 +71,7 @@ To Install this on  Mac OSX install graphviz then the requiremewnts and the libr
 ```bash
 brew install graphviz
 cd src
-pip install requirements.txt
-pip install -e .
+pip install -e ".[dev]"
 ```
 
 ## Running the tool
