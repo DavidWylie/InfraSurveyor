@@ -1,9 +1,12 @@
+[![PyPI version](https://badge.fury.io/py/infra-surveyor.svg)](https://badge.fury.io/py/infra-surveyor)
+![PythonSupport](https://img.shields.io/static/v1?label=python&message=3.8%2B&color=blue?style=flat-square&logo=python)
+[![Documentation Status](https://readthedocs.org/projects/infrasurveyor/badge/?version=latest)](https://infrasurveyor.readthedocs.io/en/latest/?badge=latest)
+
 [![Unit Tests](https://github.com/DavidWylie/Surveyor/workflows/UnitTests/badge.svg)](https://github.com/DavidWylie/Surveyor/actions/workflows/UnitTests)
 [![codecov](https://codecov.io/gh/DavidWylie/InfraSurveyor/branch/main/graph/badge.svg?token=5J8QX2DK5H)](https://codecov.io/gh/DavidWylie/InfraSurveyor)
-![PythonSupport](https://img.shields.io/static/v1?label=python&message=3.8%2B&color=blue?style=flat-square&logo=python)
 [![CodeQL](https://github.com/DavidWylie/Surveyor/workflows/CodeQuality/badge.svg)](https://github.com/DavidWylie/Surveyor/actions/workflows/CodeQuality)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Documentation Status](https://readthedocs.org/projects/infrasurveyor/badge/?version=latest)](https://infrasurveyor.readthedocs.io/en/latest/?badge=latest)
+
 
 
 # Infra Surveyor
