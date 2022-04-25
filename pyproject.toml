@@ -29,7 +29,7 @@ Source="https://github.com/DavidWylie/Surveyor"
 surveyor="infra_surveyor.commands:cli"
 
 [tool.coverage.run]
-include = ["src/surveyor/*", "src/surveyor_aws_icons/*"]
+include = ["src/infra_surveyor/*", "src/infra_surveyor_aws_icons/*"]
 omit = ["tests/*"]
 
 [tool.coverage.html]
