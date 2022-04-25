@@ -1,7 +1,7 @@
 from unittest import TestCase
 from unittest.mock import patch, Mock
-from surveyor.cloud import aws
-from surveyor.cloud.models import Resource, Link
+from infra_surveyor.cloud import aws
+from infra_surveyor.cloud.models import Resource, Link
 
 
 class MockService:

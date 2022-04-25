@@ -1,7 +1,7 @@
 import unittest
-from surveyor import icons
-from surveyor.cloud import models
-from surveyor_aws_icons.loader import _get_resource_dir
+from infra_surveyor import icons
+from infra_surveyor.cloud import models
+from infra_surveyor_aws_icons.loader import _get_resource_dir
 
 
 class TestIcon(unittest.TestCase):

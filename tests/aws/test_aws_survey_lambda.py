@@ -1,6 +1,6 @@
 import unittest
-from surveyor.cloud import aws
-from surveyor.cloud.models import Resource, Link
+from infra_surveyor.cloud import aws
+from infra_surveyor.cloud.models import Resource, Link
 from moto import mock_lambda, mock_sqs
 from helpers import MotoLambdaHelper, MotoSqsHelper
 

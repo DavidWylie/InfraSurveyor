@@ -1,5 +1,5 @@
 import unittest
-from surveyor.cloud.aws import boto_utilities
+from infra_surveyor.cloud.aws import boto_utilities
 
 
 class MyTestCase(unittest.TestCase):

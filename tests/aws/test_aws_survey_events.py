@@ -1,9 +1,9 @@
 import unittest
 from helpers import MotoEventsHelper, MotoSnsHelper
-from surveyor.cloud.aws.event_rules import EventsCollector, EventsDataParser
-from surveyor.cloud.aws import event_rules
+from infra_surveyor.cloud.aws.event_rules import EventsCollector, EventsDataParser
+from infra_surveyor.cloud.aws import event_rules
 from moto import mock_events, mock_sns
-from surveyor.cloud.models import Resource, Link
+from infra_surveyor.cloud.models import Resource, Link
 import json
 
 

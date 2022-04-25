@@ -1,5 +1,5 @@
 import graphviz
-from surveyor.cloud import models
+from infra_surveyor.cloud import models
 from typing import List
 
 

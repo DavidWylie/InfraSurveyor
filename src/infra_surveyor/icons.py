@@ -1,5 +1,5 @@
 from typing import List
-import surveyor_aws_icons as aws_icons
+import infra_surveyor_aws_icons as aws_icons
 from .cloud import models
 
 

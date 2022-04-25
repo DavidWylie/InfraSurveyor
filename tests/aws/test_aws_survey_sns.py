@@ -2,9 +2,9 @@ import unittest
 from moto import mock_sns, mock_sqs
 from helpers import MotoSnsHelper, MotoSqsHelper
 
-from surveyor.cloud.aws.sns_topics import SNSCollector, SNSResultsParser
-from surveyor.cloud.aws import sns_topics
-from surveyor.cloud.models import Resource, Link
+from infra_surveyor.cloud.aws.sns_topics import SNSCollector, SNSResultsParser
+from infra_surveyor.cloud.aws import sns_topics
+from infra_surveyor.cloud.models import Resource, Link
 
 
 class TestAWSSurveySNS(unittest.TestCase):

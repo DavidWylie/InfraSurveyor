@@ -1,9 +1,9 @@
 import unittest
 from helpers import MotoSqsHelper
-from surveyor.cloud.aws.sqs_queues import SQSCollector, SQSDataParser
-from surveyor.cloud.aws import sqs_queues
+from infra_surveyor.cloud.aws.sqs_queues import SQSCollector, SQSDataParser
+from infra_surveyor.cloud.aws import sqs_queues
 from moto import mock_sqs
-from surveyor.cloud.models import Resource, Link
+from infra_surveyor.cloud.models import Resource, Link
 
 
 class TestAWSSurveySQS(unittest.TestCase):

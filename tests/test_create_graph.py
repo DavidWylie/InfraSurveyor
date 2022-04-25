@@ -1,6 +1,6 @@
 import unittest
-from surveyor import graphing
-from surveyor.cloud.models import Resource, Link
+from infra_surveyor import graphing
+from infra_surveyor.cloud.models import Resource, Link
 import os
 
 
