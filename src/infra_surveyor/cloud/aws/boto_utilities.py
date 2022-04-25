@@ -2,8 +2,8 @@ from typing import Callable, Dict
 
 
 class BaseAwsCollector:
+    @staticmethod
     def get_paginated_results(
-        self,
         action_method: Callable[[str], Dict],
         marker_field_name: str,
         results_field_name: str,
