@@ -13,19 +13,6 @@
 A tool to survey existing cloud infrastructure and document what exists.
 This project is still in development and is not yet in use on a production system.  Diagrams are against AWS at the moment but this might not be required in the future.
 
-## Releasing
-```bash
-pip install -e ".[dev]"
-semantic-release publish --minor
-```
-
-This command will:
-- bump the verison number
-- create the git tag for the release
-- push the tag
-
-A github action will kick in to create the release in github when the tag is pushed.  The release will contain the files in the dist directory created by flit and license file.
-
 # Installation
 To Install this on  Mac OSX install graphviz then the requiremewnts and the library.
 ```bash
@@ -50,6 +37,19 @@ This will install mkdocs which can be used to host the docs locally during writi
 ``` bash
 mkdocs serve 
 ```
+
+# Releasing
+```bash
+pip install -e ".[dev]"
+semantic-release publish --minor
+```
+
+This command will:
+- bump the verison number
+- create the git tag for the release
+- push the tag
+
+A github action will kick in to create the release in github when the tag is pushed.  The release will contain the files in the dist directory created by flit and license file.
 
 ## Running the tool
 Prequisites:
