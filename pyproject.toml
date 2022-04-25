@@ -54,7 +54,7 @@ include = '\.pyi?$'
 
 [tool.semantic_release]
 branch = "main"
-version_variable = "src/infra_surveyor/__init__.py:__version__"
+version_variable = "src/infra_surveyor/_version.py:__version__"
 tag_commit = true
 commit_version_number = true
 commit_subject = ":bookmark: Release {version}"
