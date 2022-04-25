@@ -1,6 +1,10 @@
 # Changelog
 <!--next-version-placeholder-->
 
+## v0.5.13 (2022-04-25)
+### Other
+* :art::memo: Create change log  ([`1b6a12c`](https://github.com/DavidWylie/Surveyor/commit/1b6a12c662690410be1621d2cb989ef97492f915))
+
 ## v0.5.12 (2022-04-25)
 ### :bug:
 * :bug: :memo: add placeholder to change log for auto generator  ([`80a2d98`](https://github.com/DavidWylie/Surveyor/commit/80a2d982d4f5ed16a933fb3cf5101421da17b121))
@@ -84,4 +88,3 @@
 * Add AWS Icon Loader using the latest aws architecture icons  ([`a2fa4d7`](https://github.com/DavidWylie/Surveyor/commit/a2fa4d7ea177de9a03b514711aa43cc843213b36))
 * Add Initial Structure  ([`c6c1a72`](https://github.com/DavidWylie/Surveyor/commit/c6c1a72ce08d0545d07c333d859d12d514ff85be))
 * Initial commit ([`bb52aa8`](https://github.com/DavidWylie/Surveyor/commit/bb52aa8dd9c85804c7ddab7cfbd257ff4af7865e))
-
