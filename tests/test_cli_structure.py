@@ -1,6 +1,6 @@
 import unittest
 from click.testing import CliRunner
-from surveyor.commands import cli
+from infra_surveyor.commands import cli
 
 
 class CliStructureTests(unittest.TestCase):

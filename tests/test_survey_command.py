@@ -1,9 +1,9 @@
 from unittest import TestCase
 from unittest.mock import Mock, patch
 from click.testing import CliRunner
-from surveyor.commands import cli
-from surveyor.cloud.models import Resource, Link
-from surveyor.graphing import Graph
+from infra_surveyor.commands import cli
+from infra_surveyor.cloud.models import Resource, Link
+from infra_surveyor.graphing import Graph
 import os
 
 
@@ -17,7 +17,7 @@ class TestCommands(TestCase):
         image_1 = (
             f"{test_dir}/../"
             "src/"
-            "surveyor_aws_icons/"
+            "infra_surveyor_aws_icons/"
             "Resource-Icons_01312022/"
             "Res_Quantum-Technologies/Res_48_Light/"
             "Res_Amazon-Braket_QPU _48_Light.svg"
@@ -73,9 +73,9 @@ class TestCommands(TestCase):
         ]
         return links
 
-    @patch("surveyor.cloud.aws.survey_events")
-    @patch("surveyor.graphing.create_graph")
-    @patch("surveyor.icons.load_icons")
+    @patch("infra_surveyor.cloud.aws.survey_events")
+    @patch("infra_surveyor.graphing.create_graph")
+    @patch("infra_surveyor.icons.load_icons")
     def test_survey_aws_event_defaults(
         self, mock_load_icons, mock_create_graph: Mock, mock_survey: Mock
     ):
@@ -98,9 +98,9 @@ class TestCommands(TestCase):
         self.assertEqual(self.DEFAULT_DIR, mocked_graph.render_graph.call_args[0][1])
         self.assertEqual(self.DEFAULT_EXT, mocked_graph.render_graph.call_args[0][2])
 
-    @patch("surveyor.cloud.aws.survey_events")
-    @patch("surveyor.graphing.create_graph")
-    @patch("surveyor.icons.load_icons")
+    @patch("infra_surveyor.cloud.aws.survey_events")
+    @patch("infra_surveyor.graphing.create_graph")
+    @patch("infra_surveyor.icons.load_icons")
     def test_survey_aws_events_custom_file_name_short(
         self, mock_load_icons, mock_create_graph: Mock, mock_survey: Mock
     ):
@@ -122,9 +122,9 @@ class TestCommands(TestCase):
         self.assertEqual(self.DEFAULT_DIR, mocked_graph.render_graph.call_args[0][1])
         self.assertEqual(self.DEFAULT_EXT, mocked_graph.render_graph.call_args[0][2])
 
-    @patch("surveyor.cloud.aws.survey_events")
-    @patch("surveyor.graphing.create_graph")
-    @patch("surveyor.icons.load_icons")
+    @patch("infra_surveyor.cloud.aws.survey_events")
+    @patch("infra_surveyor.graphing.create_graph")
+    @patch("infra_surveyor.icons.load_icons")
     def test_survey_aws_events_custom_file_name_option(
         self, mock_load_icons, mock_create_graph: Mock, mock_survey: Mock
     ):
@@ -146,9 +146,9 @@ class TestCommands(TestCase):
         self.assertEqual(self.DEFAULT_DIR, mocked_graph.render_graph.call_args[0][1])
         self.assertEqual(self.DEFAULT_EXT, mocked_graph.render_graph.call_args[0][2])
 
-    @patch("surveyor.cloud.aws.survey_events")
-    @patch("surveyor.graphing.create_graph")
-    @patch("surveyor.icons.load_icons")
+    @patch("infra_surveyor.cloud.aws.survey_events")
+    @patch("infra_surveyor.graphing.create_graph")
+    @patch("infra_surveyor.icons.load_icons")
     def test_survey_aws_events_custom_ext_svg(
         self, mock_load_icons, mock_create_graph: Mock, mock_survey: Mock
     ):
@@ -172,9 +172,9 @@ class TestCommands(TestCase):
         self.assertEqual(self.DEFAULT_DIR, mocked_graph.render_graph.call_args[0][1])
         self.assertEqual("svg", mocked_graph.render_graph.call_args[0][2])
 
-    @patch("surveyor.cloud.aws.survey_events")
-    @patch("surveyor.graphing.create_graph")
-    @patch("surveyor.icons.load_icons")
+    @patch("infra_surveyor.cloud.aws.survey_events")
+    @patch("infra_surveyor.graphing.create_graph")
+    @patch("infra_surveyor.icons.load_icons")
     def test_survey_aws_events_custom_output_dir_option(
         self, mock_load_icons, mock_create_graph: Mock, mock_survey: Mock
     ):
@@ -199,9 +199,9 @@ class TestCommands(TestCase):
         self.assertEqual(out_dir, mocked_graph.render_graph.call_args[0][1])
         self.assertEqual(self.DEFAULT_EXT, mocked_graph.render_graph.call_args[0][2])
 
-    @patch("surveyor.cloud.aws.survey_events")
-    @patch("surveyor.graphing.create_graph")
-    @patch("surveyor.icons.load_icons")
+    @patch("infra_surveyor.cloud.aws.survey_events")
+    @patch("infra_surveyor.graphing.create_graph")
+    @patch("infra_surveyor.icons.load_icons")
     def test_survey_aws_events_custom_output_dir_short(
         self, mock_load_icons, mock_create_graph: Mock, mock_survey: Mock
     ):

@@ -19,7 +19,7 @@ Surveyor is a work in progress and has the following limitations:
 
 ## Installation
 ```bash
-pip install surveyor
+pip install infra_surveyor
 ```
 
 

@@ -1,4 +1,4 @@
-site_name: Surveyor
+site_name: Infra Surveyor
 theme:
   name: readthedocs
   highlightjs: true

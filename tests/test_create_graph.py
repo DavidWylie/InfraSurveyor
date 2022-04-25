@@ -10,7 +10,7 @@ class TestGraphing(unittest.TestCase):
         image_1 = (
             f"{test_dir}/../"
             "src/"
-            "surveyor_aws_icons/"
+            "infra_surveyor_aws_icons/"
             "Resource-Icons_01312022/"
             "Res_Quantum-Technologies/Res_48_Light/"
             "Res_Amazon-Braket_QPU _48_Light.svg"

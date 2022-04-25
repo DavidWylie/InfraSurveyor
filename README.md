@@ -5,7 +5,7 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Documentation Status](https://readthedocs.org/projects/surveyor/badge/?version=latest)](https://surveyor.readthedocs.io/en/latest/?badge=latest)
 
-# Surveyor
+# Infra Surveyor
 A tool to survey existing cloud infrastructure and document what exists.
 This project is still in development and is not yet in use on a production system.  Diagrams are against AWS at the moment but this might not be required in the future.
 
@@ -26,7 +26,7 @@ A github action will kick in to create the release in github when the tag is pus
 To Install this on  Mac OSX install graphviz then the requiremewnts and the library.
 ```bash
 brew install graphviz
-pip install surveyor
+pip install infra_surveyor
 ```
 
 ## Installation for development
@@ -55,7 +55,7 @@ Prequisites:
 
 This is a self documenting commandline application so once installed you can run the command below to explore the project.
 ```bash
-surveyor --help
+infra_surveyor --help
 ```
 
 # Dependencies

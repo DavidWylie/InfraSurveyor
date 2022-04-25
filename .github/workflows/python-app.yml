@@ -41,4 +41,4 @@ jobs:
       with:
         file: out/report/coverage.xml
         env_vars: OS,PYTHON
-        name: surveyor
+        name: infra_surveyor

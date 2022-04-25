@@ -4,7 +4,7 @@ on:
    workflow_dispatch:
      inputs:
        release:
-         description: Revelease number
+         description: Release number
          required: true
          type: string
 jobs:
@@ -19,6 +19,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -e ".[release]"
+      - name: Fake version number
+        run: |
+          echo " __version__ = \"$INPUT_RELEASE_NUMBER\"\n" > src/surveyor/__init__.py
       - name: Build Distribution
         run: |
           flit build
