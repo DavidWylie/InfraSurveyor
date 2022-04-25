@@ -21,7 +21,7 @@ jobs:
           pip install -e ".[release]"
       - name: Fake version number
         run: |
-          echo " __version__ = \"${{ inputs.RELEASE}}\"\n" > src/infra_surveyor/__init__.py
+          echo " __version__ = \"${{ on.workflow_dispatch.inputs.RELEASE }}\"\n" > src/infra_surveyor/__init__.py
       - name: Build Distribution
         run: |
           flit build
