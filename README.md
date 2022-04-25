@@ -1,5 +1,5 @@
 [![Unit Tests](https://github.com/DavidWylie/Surveyor/workflows/UnitTests/badge.svg)](https://github.com/DavidWylie/Surveyor/actions/workflows/UnitTests)
-[![codecov](https://codecov.io/gh/DavidWylie/Surveyor/branch/main/graph/badge.svg?token=H7GP0SZLN7)](https://codecov.io/gh/DavidWylie/Surveyor)
+[![codecov](https://codecov.io/gh/DavidWylie/InfraSurveyor/branch/main/graph/badge.svg?token=5J8QX2DK5H)](https://codecov.io/gh/DavidWylie/InfraSurveyor)
 ![PythonSupport](https://img.shields.io/static/v1?label=python&message=3.8%2B&color=blue?style=flat-square&logo=python)
 [![CodeQL](https://github.com/DavidWylie/Surveyor/workflows/CodeQuality/badge.svg)](https://github.com/DavidWylie/Surveyor/actions/workflows/CodeQuality)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
