@@ -1,1 +1,5 @@
-__version__ = "0.5.7"
+import logging
+
+from ._version import __version__
+
+logging.basicConfig(level="INFO")

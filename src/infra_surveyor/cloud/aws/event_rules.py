@@ -1,3 +1,5 @@
+import logging
+
 import boto3
 from .. import models
 from .boto_utilities import BaseAwsCollector
@@ -59,6 +61,7 @@ class EventsDataParser:
 
 
 def get(nodes, links, region):
+    logging.info("Starting Event Collection")
     collector = EventsCollector(region)
     parser = EventsDataParser()
 
@@ -67,3 +70,5 @@ def get(nodes, links, region):
     for rule in rules:
         targets = collector.get_targets_for_rule(rule["Name"])
         links.extend(parser.create_rule_target_links(targets, rule["Arn"]))
+
+    logging.info("Event Collection Complete")

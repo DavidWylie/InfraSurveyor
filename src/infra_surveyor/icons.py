@@ -1,4 +1,7 @@
+import logging
 from typing import List
+
+import infra_surveyor_aws_icons
 import infra_surveyor_aws_icons as aws_icons
 from .cloud import models
 
@@ -13,3 +16,5 @@ def load_icons(nodes: List[models.Resource]):
         )
         icon_path = loader.get_resource_icon(resource=icon_resource)
         node.image = str(icon_path)
+
+    logging.info(f"AWS-19 Icons Applied version: {infra_surveyor_aws_icons.version}")

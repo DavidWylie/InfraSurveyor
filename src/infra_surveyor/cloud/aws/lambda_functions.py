@@ -1,3 +1,5 @@
+import logging
+
 import boto3
 from .. import models
 from .boto_utilities import BaseAwsCollector
@@ -9,7 +11,9 @@ class LambdaDataCollector(BaseAwsCollector):
 
     def get_functions(self):
         return self.get_paginated_results(
-            lambda marker: self.client.list_functions(Marker=marker, MaxItems=20),
+            lambda marker: self.client.list_functions(Marker=marker, MaxItems=20)
+            if marker
+            else self.client.list_functions(MaxItems=20),
             "NextMarker",
             "Functions",
         )
@@ -18,7 +22,9 @@ class LambdaDataCollector(BaseAwsCollector):
         return self.get_paginated_results(
             lambda marker: self.client.list_event_source_mappings(
                 Marker=marker, MaxItems=20
-            ),
+            )
+            if marker
+            else self.client.list_event_source_mappings(MaxItems=20),
             "NextMarker",
             "EventSourceMappings",
         )
@@ -80,6 +86,7 @@ class LambdaResultsParser:
 
 
 def get(nodes, links, region):
+    logging.info("Starting Lambda collection")
     collector = LambdaDataCollector(region)
     items = collector.get_functions()
 
@@ -88,3 +95,4 @@ def get(nodes, links, region):
 
     event_sources = collector.get_event_source_mappings()
     links.extend(parser.create_event_source_links(event_sources))
+    logging.info("Lambda Collection Complete")

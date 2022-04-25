@@ -1,3 +1,5 @@
+import logging
+
 import boto3
 from .. import models
 from .boto_utilities import BaseAwsCollector
@@ -45,8 +47,10 @@ class SQSDataParser:
 
 
 def get(nodes, links, region):
+    logging.info("Starting SQS collection")
     collector = SQSCollector(region)
     data = collector.get_queues()
     parser = SQSDataParser()
     nodes.extend(parser.create_sqs_nodes(data))
     links.extend(parser.create_sqs_dlq_links(data))
+    logging.info("SQS Collection Complete")

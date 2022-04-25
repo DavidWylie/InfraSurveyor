@@ -1,3 +1,5 @@
+import logging
+
 import boto3
 from .. import models
 from .boto_utilities import BaseAwsCollector
@@ -53,6 +55,7 @@ class SNSResultsParser:
 
 
 def get(nodes, links, region):
+    logging.info("Starting SNS Collection")
     collector = SNSCollector(region)
     parser = SNSResultsParser()
 
@@ -61,3 +64,4 @@ def get(nodes, links, region):
 
     subscriptions = collector.get_subscriptions()
     links.extend(parser.create_subscription_links(subscriptions))
+    logging.info("SNS Collection Complete")

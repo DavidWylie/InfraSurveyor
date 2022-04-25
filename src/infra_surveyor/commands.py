@@ -1,3 +1,5 @@
+import logging
+
 import click
 from . import cloud, icons, graphing
 
@@ -26,3 +28,5 @@ def survey_aws_events(out_dir, out_file, out_ext):
     icons.load_icons(nodes)
     graph = graphing.create_graph(nodes, links)
     graph.render_graph(out_file, out_dir, out_ext)
+    logging.info(f"Written Diagram to {out_dir}/{out_file}.{out_ext}")
+    logging.info(f"Written Graphviz Dot file to {out_dir}/{out_file}")
