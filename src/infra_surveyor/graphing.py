@@ -19,7 +19,7 @@ class Graph:
             },
             node_attr={
                 "shape": "none",
-                "height": "0.75",
+                "height": "0.9",
                 "labelloc": "b",
                 "imagepos": "tc",
                 "fontname": "Sans-Serif",
@@ -34,7 +34,8 @@ class Graph:
     def assemble_graph(self, nodes: List[models.Resource], links: List[models.Link]):
         for node in nodes:
             safe_id = self._hash_id(node.id)
-            self.graph.node(safe_id, node.name, image=node.image)
+            neat_name = node.name
+            self.graph.node(safe_id, neat_name, image=node.image)
 
         for link in links:
             safe_source = self._hash_id(link.source)
