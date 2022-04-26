@@ -45,7 +45,7 @@ class TestAWSSurveyEvents(unittest.TestCase):
             rule_name, [{"Id": "test-tarted-id", "Arn": topic_arn}]
         )
         collector = EventsCollector("eu-west-2")
-        targets = collector.get_targets_for_rule(rule_name)
+        targets = collector.get_targets_for_rule(rule_name, "default")
         self.assertEqual(1, len(targets))
         self.assertEqual(topic_arn, targets[0]["Arn"])
 
@@ -107,7 +107,7 @@ class TestAWSSurveyEvents(unittest.TestCase):
         ]
 
         collector = EventsCollector("eu-west-2")
-        targets = collector.get_targets_for_rule(rule_name)
+        targets = collector.get_targets_for_rule(rule_name, "default")
 
         parser = EventsDataParser()
         links = parser.create_rule_target_links(targets, rule_arn)
@@ -133,17 +133,25 @@ class TestAWSSurveyEvents(unittest.TestCase):
         )
 
         expected_links = [
+            Link(source="default", destination=rule_arn, link_type=""),
             Link(source=rule_arn, destination=topic_arn, link_type=""),
         ]
 
         expected_nodes = [
+            Resource(
+                id="default",
+                name="default",
+                resource_type="Default-Event-Bus",
+                service="Amazon-EventBridge",
+                category="APPLICATION_INTEGRATION",
+            ),
             Resource(
                 id=rule_arn,
                 name=rule_name,
                 resource_type="Rule",
                 service="Amazon-EventBridge",
                 category="APPLICATION_INTEGRATION",
-            )
+            ),
         ]
 
         nodes = []
