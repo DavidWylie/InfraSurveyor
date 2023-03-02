@@ -27,3 +27,8 @@ Required Services:
 - EC2
 - VPC Endpoints
 - Internet gateways
+
+## Examples
+![Event Bus Example](./aws-events-clean.png)
+
+
