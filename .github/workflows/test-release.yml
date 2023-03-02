@@ -24,7 +24,7 @@ jobs:
           echo "__version__ = \"${{ github.event.inputs.RELEASE }}\"" > src/infra_surveyor/__init__.py
       - name: Build Distribution
         run: |
-          flit build
+          python -m build
       - name: Publish package to TestPyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
