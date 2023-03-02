@@ -1,6 +1,9 @@
 # Changelog
 <!--next-version-placeholder-->
 
+## v0.7.0 (2023-03-02)
+
+
 ## v0.6.0 (2023-03-02)
 ### :sparkles:
 * :sparkles: add Event bridge event bus support ([`588683f`](https://github.com/DavidWylie/InfraSurveyor/commit/588683f548803d4b7fe12061a65ea44f87539f59))
