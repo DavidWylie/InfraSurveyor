@@ -1,6 +1,24 @@
 # Changelog
 <!--next-version-placeholder-->
 
+## v0.6.0 (2023-03-02)
+### :sparkles:
+* :sparkles: add Event bridge event bus support ([`588683f`](https://github.com/DavidWylie/InfraSurveyor/commit/588683f548803d4b7fe12061a65ea44f87539f59))
+
+### :bug:
+* :bug: :hammer: Fix actions ([#2](https://github.com/DavidWylie/InfraSurveyor/issues/2)) ([`61afb72`](https://github.com/DavidWylie/InfraSurveyor/commit/61afb7226e3cf521e84bac45fd43b0f7d9d60cca))
+* :bug: :hammer: Moving build system away form flit as the builds do not install. ([`ff3d2a7`](https://github.com/DavidWylie/InfraSurveyor/commit/ff3d2a70cc053b41411f19fc65adedfda06580c2))
+* :bug: fix issue with unescaped ids by using hashing ([`33e4572`](https://github.com/DavidWylie/InfraSurveyor/commit/33e457246c9c036584271dca9f8baf44a2c9a8c9))
+* :bug: hash ids in dot file to avoid naming conflicts and incompatible ids. ([`43f4658`](https://github.com/DavidWylie/InfraSurveyor/commit/43f4658a23a6a2f72388a196f916a9a118da9619))
+
+### Other
+* Merge pull request #1 from DavidWylie/example-images ([`14b93ec`](https://github.com/DavidWylie/InfraSurveyor/commit/14b93ecc94b92fe2370373c605b47e53d000fee5))
+* Add docs ([`7466c01`](https://github.com/DavidWylie/InfraSurveyor/commit/7466c0117bcb163460697d91e696db7b994e3ce8))
+* Update README.md ([`3691233`](https://github.com/DavidWylie/InfraSurveyor/commit/369123361aa5ce7981b6b03a3be3f07b3548821b))
+* :white_check_mark: Add event bus tests ([`0426662`](https://github.com/DavidWylie/InfraSurveyor/commit/04266623743906bc65305f5f5eb58874c9e6e4f9))
+* :hammer: Fix issue with missing icons in built packages ([`d64c55e`](https://github.com/DavidWylie/InfraSurveyor/commit/d64c55ed80c884489a361bb66f91d67025281ca3))
+* :art: linting ([`9ebc405`](https://github.com/DavidWylie/InfraSurveyor/commit/9ebc405497cdfa71a7436c7f03a1fe8cbe81cf03))
+
 ## v0.5.13 (2022-04-25)
 ### Other
 * :art::memo: Create change log  ([`1b6a12c`](https://github.com/DavidWylie/Surveyor/commit/1b6a12c662690410be1621d2cb989ef97492f915))
