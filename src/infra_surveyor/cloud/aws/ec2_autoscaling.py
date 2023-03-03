@@ -5,7 +5,7 @@ from infra_surveyor.cloud.models import Link, Resource
 
 
 class AutoScalingParser:
-    def add_static_service_if_required(self,nodes, links):
+    def add_static_service_if_required(self, nodes, links):
         arns = self.get_linked_arns(links)
         for arn in arns:
             if not self.has_node(arn, nodes):

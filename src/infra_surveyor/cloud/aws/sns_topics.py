@@ -61,10 +61,7 @@ class SNSResultsParser:
 
     @staticmethod
     def create_subscription_node(item):
-        resource_types = {
-            "email": "Email-Notification",
-            "http": "HTTP-Notification"
-        }
+        resource_types = {"email": "Email-Notification", "http": "HTTP-Notification"}
         return models.Resource(
             name=item["Endpoint"],
             resource_type=resource_types.get(item["Protocol"], item["Protocol"]),
@@ -81,7 +78,6 @@ def get(nodes, links, region):
 
     topics = collector.get_topics()
     nodes.extend(parser.create_topic_nodes(topics))
-
 
     subscriptions = collector.get_subscriptions()
     nodes.extend(parser.create_subscription_nodes(subscriptions))

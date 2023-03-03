@@ -5,6 +5,7 @@ from . import cloud, icons, graphing
 from io import open
 import json
 
+
 @click.group()
 def cli():
     """Surveyor is a tool for generating diagrams from existing cloud infrastructure"""

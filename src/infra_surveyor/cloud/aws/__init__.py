@@ -6,6 +6,7 @@ REGION = "eu-west-2"
 services = [sqs_queues, sns_topics, event_rules, lambda_functions]
 static_services = [ec2_autoscaling]
 
+
 def survey_events() -> (List[models.Resource], List[models.Link]):
     global REGION
 
