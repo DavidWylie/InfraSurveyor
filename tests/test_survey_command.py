@@ -177,7 +177,11 @@ class TestCommands(TestCase):
     @patch("infra_surveyor.graphing.create_graph")
     @patch("infra_surveyor.icons.load_icons")
     def test_survey_aws_events_custom_output_dir_option(
-        self, mock_load_icons, mock_create_graph: Mock, mock_survey: Mock, mock_write: Mock
+        self,
+        mock_load_icons,
+        mock_create_graph: Mock,
+        mock_survey: Mock,
+        mock_write: Mock,
     ):
         runner = CliRunner()
         nodes = self._create_test_nodes()
