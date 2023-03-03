@@ -56,7 +56,8 @@ class SNSResultsParser:
     def create_subscription_nodes(self, items):
         topic_nodes = []
         for item in items:
-            topic_nodes.append(self.create_subscription_node(item))
+            if item["Protocol"] in ["email", "http"]:
+                topic_nodes.append(self.create_subscription_node(item))
         return topic_nodes
 
     @staticmethod

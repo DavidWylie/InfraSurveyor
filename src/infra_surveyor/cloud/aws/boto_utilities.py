@@ -2,7 +2,7 @@ from typing import Callable, Dict
 from collections import namedtuple
 
 Arn = namedtuple(
-    "Arn", ["partition", "service", "region", "resource_id", "resource_type"]
+    "Arn", ["partition", "service", "region", "account","resource_id", "resource_type"]
 )
 
 
@@ -10,21 +10,22 @@ def parse_arn(arn):
     parts = arn.split(":")
     resource_type = ""
     resource_id = ""
-    if len(parts) == 5:
-        resource_type = parts[3]
-        resource_id = parts[4]
-    elif len(parts) == 4:
-        resource_parts = parts[3].split("/")
+    if len(parts) == 7:
+        resource_type = parts[5]
+        resource_id = parts[6]
+    elif len(parts) == 6:
+        resource_parts = parts[5].split("/")
         if len(resource_parts) == 2:
-            resource_type = parts[0]
-            resource_id = parts[1]
+            resource_type = resource_parts[0]
+            resource_id = resource_parts[1]
         else:
-            resource_id = parts[3]
+            resource_id = parts[5]
 
     return Arn(
-        partition=parts[0],
-        service=parts[1],
-        region=parts[2],
+        partition=parts[1],
+        service=parts[2],
+        region=parts[3],
+        account=parts[4],
         resource_type=resource_type,
         resource_id=resource_id,
     )

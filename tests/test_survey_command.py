@@ -172,11 +172,12 @@ class TestCommands(TestCase):
         self.assertEqual(self.DEFAULT_DIR, mocked_graph.render_graph.call_args[0][1])
         self.assertEqual("svg", mocked_graph.render_graph.call_args[0][2])
 
+    @patch("infra_surveyor.cloud.write_survey")
     @patch("infra_surveyor.cloud.aws.survey_events")
     @patch("infra_surveyor.graphing.create_graph")
     @patch("infra_surveyor.icons.load_icons")
     def test_survey_aws_events_custom_output_dir_option(
-        self, mock_load_icons, mock_create_graph: Mock, mock_survey: Mock
+        self, mock_load_icons, mock_create_graph: Mock, mock_survey: Mock, mock_write: Mock
     ):
         runner = CliRunner()
         nodes = self._create_test_nodes()
@@ -192,6 +193,7 @@ class TestCommands(TestCase):
         self.assertEqual(1, mock_survey.call_count)
         self.assertEqual(1, mock_create_graph.call_count)
         self.assertEqual(1, mock_load_icons.call_count)
+        self.assertEqual(1, mock_write.call_count)
 
         self.assertEqual(
             self.DEFAULT_FILE_NAME, mocked_graph.render_graph.call_args[0][0]
@@ -199,11 +201,12 @@ class TestCommands(TestCase):
         self.assertEqual(out_dir, mocked_graph.render_graph.call_args[0][1])
         self.assertEqual(self.DEFAULT_EXT, mocked_graph.render_graph.call_args[0][2])
 
+    @patch("infra_surveyor.cloud.write_survey")
     @patch("infra_surveyor.cloud.aws.survey_events")
     @patch("infra_surveyor.graphing.create_graph")
     @patch("infra_surveyor.icons.load_icons")
     def test_survey_aws_events_custom_output_dir_short(
-        self, mock_load_icons, mock_create_graph: Mock, mock_survey: Mock
+        self, mock_load_icons, mock_create_graph: Mock, mock_survey: Mock, mock_writer
     ):
         runner = CliRunner()
         nodes = self._create_test_nodes()
@@ -219,6 +222,7 @@ class TestCommands(TestCase):
         self.assertEqual(1, mock_survey.call_count)
         self.assertEqual(1, mock_create_graph.call_count)
         self.assertEqual(1, mock_load_icons.call_count)
+        self.assertEqual(1, mock_writer.call_count)
 
         self.assertEqual(
             self.DEFAULT_FILE_NAME, mocked_graph.render_graph.call_args[0][0]

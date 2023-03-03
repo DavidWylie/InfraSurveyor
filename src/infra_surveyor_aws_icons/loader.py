@@ -38,6 +38,6 @@ class IconLoader:
             _get_resource_dir(),
             f"Architecture-Service-Icons_{version}",
             f"Arch_{category.value.name}",
-            f"Arch_{self.service_icon_set.value}",
+            f"{self.service_icon_set.value}",
             f"Arch_{service}_{self.service_icon_set.value}.{self.image_format.value}",
         )
