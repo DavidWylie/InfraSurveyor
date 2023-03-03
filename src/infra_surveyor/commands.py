@@ -27,12 +27,7 @@ def survey_aws_events(out_dir, out_file, out_ext):
     """Survey the AWS Events flow - Creates a Dot graph and an Image"""
     nodes, links = cloud.aws.survey_events()
 
-    with open('aws-survey.json',mode="w+") as f:
-        survey = {
-            "nodes": nodes,
-            "links": links
-        }
-        f.write(json.dumps(survey, cls=cloud.models.EnhancedJSONEncoder, indent=3))
+    cloud.write_survey(f"{out_dir}/{out_file}-survey.json", nodes, links)
     icons.load_icons(nodes)
 
     graph = graphing.create_graph(nodes, links)
