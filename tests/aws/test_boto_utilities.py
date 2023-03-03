@@ -71,7 +71,7 @@ class BotoUtilsTest(unittest.TestCase):
     def test_parse_arn_service(self):
         test_arn = "arn:aws:autoscaling:eu-west-2::"
         arn = boto_utilities.parse_arn(test_arn)
-        self.assertEqual("eu-west-2",arn.region)
+        self.assertEqual("eu-west-2", arn.region)
         self.assertEqual("autoscaling", arn.service)
         self.assertEqual("aws", arn.partition)
 
@@ -79,7 +79,7 @@ class BotoUtilsTest(unittest.TestCase):
         "arn:aws:events:eu-west-2:870594606895:rule/AutoScalingManagedRule"
         test_arn = "arn:aws:lambda:eu-west-2:<accountNo>:function:exampleFunction"
         arn = boto_utilities.parse_arn(test_arn)
-        self.assertEqual("eu-west-2",arn.region)
+        self.assertEqual("eu-west-2", arn.region)
         self.assertEqual("lambda", arn.service)
         self.assertEqual("aws", arn.partition)
         self.assertEqual("<accountNo>", arn.account)
@@ -87,10 +87,9 @@ class BotoUtilsTest(unittest.TestCase):
         self.assertEqual("exampleFunction", arn.resource_id)
 
     def test_parse_arn_resource_type_slash(self):
-
         test_arn = "arn:aws:events:eu-west-2:<accountNo>:rule/ExampleRule"
         arn = boto_utilities.parse_arn(test_arn)
-        self.assertEqual("eu-west-2",arn.region)
+        self.assertEqual("eu-west-2", arn.region)
         self.assertEqual("events", arn.service)
         self.assertEqual("aws", arn.partition)
         self.assertEqual("<accountNo>", arn.account)
@@ -100,7 +99,7 @@ class BotoUtilsTest(unittest.TestCase):
     def test_parse_arn_resource(self):
         test_arn = "arn:aws:autoscaling:eu-west-2:<accountNo>:<exampleId>"
         arn = boto_utilities.parse_arn(test_arn)
-        self.assertEqual("eu-west-2",arn.region)
+        self.assertEqual("eu-west-2", arn.region)
         self.assertEqual("autoscaling", arn.service)
         self.assertEqual("aws", arn.partition)
         self.assertEqual("<exampleId>", arn.resource_id)
