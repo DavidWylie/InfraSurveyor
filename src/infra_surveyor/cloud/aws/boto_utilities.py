@@ -1,9 +1,15 @@
+import dataclasses
 from typing import Callable, Dict
-from collections import namedtuple
 
-Arn = namedtuple(
-    "Arn", ["partition", "service", "region", "account", "resource_id", "resource_type"]
-)
+
+@dataclasses.dataclass
+class Arn:
+    partition: str
+    service: str = ""
+    region: str = ""
+    account: str = ""
+    resource_id: str = ""
+    resource_type: str = ""
 
 
 def parse_arn(arn):
@@ -34,9 +40,9 @@ def parse_arn(arn):
 class BaseAwsCollector:
     @staticmethod
     def get_paginated_results(
-        action_method: Callable[[str], Dict],
-        marker_field_name: str,
-        results_field_name: str,
+            action_method: Callable[[str], Dict],
+            marker_field_name: str,
+            results_field_name: str,
     ):
         items = []
         result = action_method("")
