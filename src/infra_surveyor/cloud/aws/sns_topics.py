@@ -53,6 +53,24 @@ class SNSResultsParser:
             link_type="subscription",
         )
 
+    def create_subscription_nodes(self, items):
+        topic_nodes = []
+        for item in items:
+            if item["Protocol"] in ["email", "http"]:
+                topic_nodes.append(self.create_subscription_node(item))
+        return topic_nodes
+
+    @staticmethod
+    def create_subscription_node(item):
+        resource_types = {"email": "Email-Notification", "http": "HTTP-Notification"}
+        return models.Resource(
+            name=item["Endpoint"],
+            resource_type=resource_types.get(item["Protocol"], item["Protocol"]),
+            id=item["Endpoint"],
+            service="Amazon-Simple-Notification-Service",
+            category="APPLICATION_INTEGRATION",
+        )
+
 
 def get(nodes, links, region):
     logging.info("Starting SNS Collection")
@@ -63,5 +81,6 @@ def get(nodes, links, region):
     nodes.extend(parser.create_topic_nodes(topics))
 
     subscriptions = collector.get_subscriptions()
+    nodes.extend(parser.create_subscription_nodes(subscriptions))
     links.extend(parser.create_subscription_links(subscriptions))
     logging.info("SNS Collection Complete")

@@ -2,6 +2,8 @@ import logging
 
 import click
 from . import cloud, icons, graphing
+from io import open
+import json
 
 
 @click.group()
@@ -25,7 +27,10 @@ def survey_aws():
 def survey_aws_events(out_dir, out_file, out_ext):
     """Survey the AWS Events flow - Creates a Dot graph and an Image"""
     nodes, links = cloud.aws.survey_events()
+
+    cloud.write_survey(f"{out_dir}/{out_file}-survey.json", nodes, links)
     icons.load_icons(nodes)
+
     graph = graphing.create_graph(nodes, links)
     graph.render_graph(out_file, out_dir, out_ext)
     logging.info(f"Written Diagram to {out_dir}/{out_file}.{out_ext}")

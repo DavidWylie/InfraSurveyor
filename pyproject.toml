@@ -24,7 +24,7 @@ classifiers = [
 [project.urls]
 documentation="https://infrasurveyor.readthedocs.io/en/latest/"
 repository="https://github.com/DavidWylie/InfraSurveyor"
-changelog="https://github.com/DavidWylie/InfraSurveyor/CHANGELOG.md"
+changelog="https://github.com/DavidWylie/InfraSurveyor/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
 dev = ["moto[all]", "docker", "coverage[toml]", "pytest-cov", "black", "python-semantic-release"]
