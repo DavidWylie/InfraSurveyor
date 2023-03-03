@@ -32,7 +32,7 @@ class CodeGuruParser:
             id=arn,
             service="Amazon-CodeGuru",
             category="MACHINE_LEARNING",
-            node_type='service'
+            node_type="service",
         )
 
 

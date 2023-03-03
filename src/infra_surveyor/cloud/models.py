@@ -18,5 +18,5 @@ class Resource:
     service: str
     category: str
     id: str
-    image: str = None,
-    node_type:str = 'resource'
+    image: str = (None,)
+    node_type: str = "resource"

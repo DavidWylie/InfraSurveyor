@@ -32,7 +32,7 @@ class StatesParser:
             id=arn,
             service="AWS-Step-Functions",
             category="APP_INTEGRATION",
-            node_type='service'
+            node_type="service",
         )
 
 

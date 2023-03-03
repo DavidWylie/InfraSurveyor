@@ -32,7 +32,7 @@ class AutoScalingParser:
             id=arn,
             service="Amazon-EC2-Auto-Scaling",
             category="COMPUTE",
-            node_type="service"
+            node_type="service",
         )
 
 

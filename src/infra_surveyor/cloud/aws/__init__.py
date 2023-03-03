@@ -1,4 +1,12 @@
-from . import lambda_functions, sqs_queues, sns_topics, event_rules, ec2_autoscaling, states, code_guru
+from . import (
+    lambda_functions,
+    sqs_queues,
+    sns_topics,
+    event_rules,
+    ec2_autoscaling,
+    states,
+    code_guru,
+)
 from .. import models
 from typing import List
 

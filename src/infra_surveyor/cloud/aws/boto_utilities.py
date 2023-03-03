@@ -2,7 +2,7 @@ from typing import Callable, Dict
 from collections import namedtuple
 
 Arn = namedtuple(
-    "Arn", ["partition", "service", "region", "account","resource_id", "resource_type"]
+    "Arn", ["partition", "service", "region", "account", "resource_id", "resource_type"]
 )
 
 
